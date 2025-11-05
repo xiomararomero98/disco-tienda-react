@@ -54,6 +54,7 @@ body {
 .navbar .logo img {
   width: 120px;
   height: auto;
+  gap: 100px; /* estaba 100x */
 }
 
 .navbar h1 {
@@ -123,15 +124,33 @@ body {
 .hero {
   height: 80vh;
   background-color: #000; /* bordes negros */
+  background-image: url('/img/navbar.jpg');
   background-image: url('../img/hero-1.png');
   background-repeat: no-repeat;
   background-position: center center;
-  background-size: contain; /* mantiene proporción */
+  background-size: cover; /* mantiene proporción */
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   padding: 20px 40px;
+}
+.hero-text {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px #ff0099, 0 0 30px #00ffcc;
+}
+
+.hero-text h1 {
+  color: #00ffcc;
+  text-shadow: 0 0 10px #00ffcc;
+  margin-bottom: 10px;
+}
+
+.hero-text p {
+  color: #fff;
+  margin-bottom: 20px;
 }
 /* Section presentación debajo del hero */
 .presentacion {
@@ -859,4 +878,11 @@ footer {
   font-weight: normal;
   font-style: normal;
   font-display: swap;
+}
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+main {
+  width: 100%;
 }

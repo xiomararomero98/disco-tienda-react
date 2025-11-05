@@ -1,10 +1,11 @@
-// src/interfaces/product.interface.ts
 export interface Product {
-  id: number | string;
+  id: number;
   nombre: string;
   precio: number;
-  descripcion?: string;
-  imagenUrl?: string;
-  categoria?: string;
-  stock?: number;
+  imagen: string;       // ruta a la imagen
+  descripcion: string;
+}
+
+export interface CartItem extends Product {
+  cantidad: number;
 }

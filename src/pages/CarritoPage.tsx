@@ -34,7 +34,6 @@ export default function CarritoPage() {
   const vaciarCarrito = () => {
     localStorage.removeItem("carrito");
     setCarrito([]);
-    alert("Carrito vacío ❌");
   };
 
   const finalizarCompra = () => {

@@ -1,26 +1,48 @@
-
+import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import React from "react";
+import "../assets/css/style.css"; // si ya lo importas en main.tsx, puedes quitar esta línea
 
-const Navbar: React.FC = () => {
+export default function Navbar() {
+  const [open, setOpen] = useState(false);
+
   return (
-    <nav className="bg-gray-800 text-white p-4">
-      <div className="container mx-auto flex justify-between items-center">
-        <Link to="/" className="text-xl font-bold">
+    <header className="navbar" role="navigation" aria-label="Main">
+      <div className="logo">
+        <Link to="/" className="titulo-navbar">
           Disco-Tienda
         </Link>
-        
-        <ul className="flex space-x-4">
-          <li><NavLink to="/productos" className={({isActive}) => isActive ? "text-yellow-400" : ""}>Productos</NavLink></li>
-          <li><NavLink to="/carrito" className={({isActive}) => isActive ? "text-yellow-400" : ""}>Carrito</NavLink></li>
-          <li><NavLink to="/nosotros" className={({isActive}) => isActive ? "text-yellow-400" : ""}>Nosotros</NavLink></li>
-          <li><NavLink to="/contacto" className={({isActive}) => isActive ? "text-yellow-400" : ""}>Contacto</NavLink></li>
-          <li><NavLink to="/blogs" className={({isActive}) => isActive ? "text-yellow-400" : ""}>Blogs</NavLink></li>
-          <li><NavLink to="/login" className={({isActive}) => isActive ? "text-yellow-400" : ""}>Login</NavLink></li>
-        </ul>
       </div>
-    </nav>
-  );
-};
 
-export default Navbar;
+      {/* Botón hamburguesa para mobile */}
+      <button
+        id="menu-toggle"
+        className="menu-toggle"
+        aria-expanded={open}
+        aria-controls="nav-links"
+        onClick={() => setOpen(o => !o)}
+      >
+        ☰
+      </button>
+
+      <nav>
+        <ul id="nav-links" className={`nav-links ${open ? "show" : ""}`} onClick={() => setOpen(false)}>
+          <li>
+            <NavLink to="/" end>Inicio</NavLink></li>
+          <li>
+            <NavLink to="/productos">Productos</NavLink></li>
+          <li>
+            <NavLink to="/carrito">Carrito</NavLink></li>
+          <li>
+            <NavLink to="/nosotros">Nosotros</NavLink></li>
+          <li>
+            <NavLink to="/contacto">Contacto</NavLink></li>
+          <li>
+            <NavLink to="/login">Login</NavLink></li>
+          <li>
+            <NavLink to="/productos" className={({isActive}) => isActive ? "active" : undefined}>Productos</NavLink></li>
+
+        </ul>
+      </nav>
+    </header>
+  );
+}

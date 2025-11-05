@@ -1,17 +1,28 @@
 import { Link } from "react-router-dom";
-import type{ Product } from "../interfaces/product.interface.ts";
+import type { Product } from "../interfaces/product.interface";
 
 export default function ProductCard({ p }: { p: Product }) {
+  const agregarCarrito = () => {
+    const carrito = JSON.parse(localStorage.getItem("carrito") || "[]");
+    const existe = carrito.find((item: Product & { cantidad: number }) => item.id === p.id);
+    if (existe) {
+      existe.cantidad = (existe.cantidad || 1) + 1;
+    } else {
+      carrito.push({ ...p, cantidad: 1 });
+    }
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+    alert(`${p.nombre} agregado ✅`);
+  };
+
   return (
-    <article className="product-card">
-      {p.imagenUrl && (
-        <img src={p.imagenUrl} alt={p.nombre} className="product-img" />
-      )}
+    <article className="producto">
+      <img src={p.imagen} alt={p.nombre} />
       <h3>{p.nombre}</h3>
-      <p className="price">${p.precio}</p>
-      <Link to={`/producto/${p.id}`} className="btn btn-sm">
-        Ver detalle
-      </Link>
+      <p>${p.precio.toLocaleString("es-CL")}</p>
+      <div style={{ display: "flex", gap: "8px", justifyContent: "center" }}>
+        <Link to={`/producto/${p.id}`} className="btn">Ver detalle</Link>
+        <button className="btn" onClick={agregarCarrito}>Añadir</button>
+      </div>
     </article>
   );
 }

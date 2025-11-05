@@ -29,8 +29,6 @@ export default function Navbar() {
           <li>
             <NavLink to="/" end>Inicio</NavLink></li>
           <li>
-            <NavLink to="/productos">Productos</NavLink></li>
-          <li>
             <NavLink to="/carrito">Carrito</NavLink></li>
           <li>
             <NavLink to="/nosotros">Nosotros</NavLink></li>

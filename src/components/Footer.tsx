@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="footer-container">
         <div className="footer-section">
           <h3>Disco-Tienda</h3>
-          <p>Tu tienda nocturna de confianza ✨</p>
+          <p>Vive la experiencia L I G T H S ✨</p>
         </div>
 
         <div className="footer-section">

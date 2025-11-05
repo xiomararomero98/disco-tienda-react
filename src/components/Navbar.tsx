@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import "../assets/css/style.css"; // si ya lo importas en main.tsx, puedes quitar esta línea
+//import "../assets/css/style.css"; // si ya lo importas en main.tsx, puedes quitar esta línea
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);

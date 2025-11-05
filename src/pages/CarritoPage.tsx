@@ -37,9 +37,12 @@ export default function CarritoPage() {
   };
 
   const finalizarCompra = () => {
-    if (carrito.length === 0) return alert("Tu carrito está vacío.");
-    alert("✅ ¡Gracias por tu compra!");
-    vaciarCarrito();
+    if (carrito.length === 0) {
+    alert("❌ Tu carrito está vacío.");
+    return;
+  };
+  alert("✅ ¡Gracias por tu compra!");
+  vaciarCarrito();
   };
 
   const total = carrito.reduce((acc, p) => acc + p.precio * p.cantidad, 0);

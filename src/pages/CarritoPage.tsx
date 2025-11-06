@@ -32,8 +32,14 @@ export default function CarritoPage() {
   };
 
   const vaciarCarrito = () => {
-    localStorage.removeItem("carrito");
-    setCarrito([]);
+    const confirmar = window.confirm("¿Estás seguro de que quieres vaciar el carrito?");
+    if (confirmar) {
+      localStorage.removeItem("carrito");
+      setCarrito([]);
+      alert("🗑️ Carrito vaciado correctamente");
+    } else {
+      alert("❌ Cancelado. Tu carrito sigue igual.");
+    }  
   };
 
   const finalizarCompra = () => {

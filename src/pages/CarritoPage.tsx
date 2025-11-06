@@ -32,8 +32,7 @@ export default function CarritoPage() {
   };
 
   const vaciarCarrito = () => {
-    const confirmar = window.confirm("¿Estás seguro de que quieres vaciar el carrito?");
-    if (confirmar) {
+    if (window.confirm("¿Seguro que quieres vaciar el carrito?")) {
       localStorage.removeItem("carrito");
       setCarrito([]);
       alert("🗑️ Carrito vaciado correctamente");

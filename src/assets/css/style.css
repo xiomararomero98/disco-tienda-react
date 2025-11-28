@@ -109,6 +109,7 @@ body {
     right: 0;
     left: 0;
     background: rgba(0,0,0,0.9);
+    -webkit-backdrop-filter: blur(2px);
     backdrop-filter: blur(2px);
     flex-direction: column;
     padding: 16px 24px;
@@ -135,6 +136,7 @@ body {
   justify-content: center;
   text-align: center;
   padding: 20px 40px;
+  width: 100%;
 }
 .hero-text {
   background: rgba(0, 0, 0, 0.5);
@@ -260,6 +262,13 @@ body {
   background: #ff0099;
   color: #fff;
 }
+
+.producto-acciones {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
 .carrito-link {
   position: relative;
   display: inline-block;
@@ -813,6 +822,8 @@ body.carrito-page {
     display: none; /* oculto por defecto */
     flex-direction: column;
     background: rgba(0, 0, 0, 0.9);
+    -webkit-backdrop-filter: blur(2px); /* primero el prefijo */
+    backdrop-filter: blur(2px);         /* luego la propiedad estándar */
     position: absolute;
     top: 80px; /* debajo del navbar */
     right: 0;
@@ -886,18 +897,15 @@ html, body {
 }
 main {
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: block;
 }
 
 .page-content {
   width: 100%;
-  max-width: 1200px;
+  max-width: none;
   margin: 0 auto;
   padding: 0 1rem;
-  display: flex;
-  flex-direction: column;
+  display: block;
 }
 
 .page-content > section{

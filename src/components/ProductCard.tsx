@@ -19,9 +19,13 @@ export default function ProductCard({ p }: { p: Product }) {
       <img src={p.imagen} alt={p.nombre} />
       <h3>{p.nombre}</h3>
       <p>${p.precio.toLocaleString("es-CL")}</p>
-      <div style={{ display: "flex", gap: "8px", justifyContent: "center" }}>
-        <Link to={`/producto/${p.id}`} className="btn">Ver detalle</Link>
-        <button className="btn" onClick={agregarCarrito}>Añadir</button>
+      <div className="producto-acciones">
+        <Link to={`/producto/${p.id}`} className="btn">
+          Ver detalle
+        </Link>
+        <button className="btn" onClick={agregarCarrito}>
+          Añadir
+        </button>
       </div>
     </article>
   );

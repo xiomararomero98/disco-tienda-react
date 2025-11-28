@@ -17,7 +17,7 @@ export default function Navbar() {
       <button
         id="menu-toggle"
         className="menu-toggle"
-        aria-expanded={open}
+        type="button"
         aria-controls="nav-links"
         onClick={() => setOpen(o => !o)}
       >

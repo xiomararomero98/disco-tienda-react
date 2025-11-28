@@ -44,7 +44,7 @@ const LoginPage: React.FC = () => {
   return (
     <div className='login-container'>
       <div className='login-box'>
-        <h1>Login</h1>
+        <h2>Login</h2>
         <form onSubmit={handleLogin}>
           <div>
             <label>Email:</label>

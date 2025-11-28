@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 
 // Componente ProductosPage
 const LoginPage: React.FC = () => {
   const[email, setEmail] = useState("");
   const[password, setPassword] = useState("")
   const[error, setError] = useState("")
+  const navigate = useNavigate();
 
   const handleLogin = async(e: React.FormEvent) => {
     e.preventDefault();
@@ -35,7 +37,7 @@ const LoginPage: React.FC = () => {
   };
 
   const handleRegister = () => {
-    window.location.href = "/register"; 
+    navigate("/registro"); 
   };
   
   

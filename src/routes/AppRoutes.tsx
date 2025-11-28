@@ -9,7 +9,7 @@ import RegistroPage from "../pages/RegistroPage";
 import ContactoPage from "../pages/ContactoPage";
 import NosotrosPage from "../pages/NosotrosPage";
 import BlogsPage from "../pages/BlogsPage";
-import HomePage from "../pages/HomePage"; // Añade esta línea
+import HomePage from "../pages/HomePage";
 
 
 export const router = createBrowserRouter([

@@ -16,14 +16,14 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 15px 30px;
-  background-image: url('/img/navbar.jpg'); /* 👈 tu imagen */
-  background-size: cover;   /* 👈 ajusta la imagen para cubrir */
+  background-image: url('/img/navbar.jpg');
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   height: 80px;
   width: 100%;
   position: relative;
-  box-shadow: 0 0 15px rgba(0,0,0,0.7); /* 👈 opcional: sombra */
+  box-shadow: 0 0 15px rgba(0,0,0,0.7);
 }
 
 .navbar::before {
@@ -86,7 +86,6 @@ body {
   text-shadow: 0 0 5px #00ffcc;
 }
 
-/* botón hamburguesa (oculto en desktop) */
 .menu-toggle {
   display: none;
   font-size: 1.6rem;
@@ -897,7 +896,7 @@ html, body {
 }
 main {
   width: 100%;
-  display: block;
+  display: block !important;
 }
 
 .page-content {
@@ -905,7 +904,7 @@ main {
   max-width: none;
   margin: 0 auto;
   padding: 0 1rem;
-  display: block;
+  display: block !important;
 }
 
 .page-content > section{

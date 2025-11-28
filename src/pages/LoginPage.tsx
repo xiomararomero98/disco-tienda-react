@@ -33,36 +33,43 @@ const LoginPage: React.FC = () => {
       setError("Error al conectar con el servidor")
     }
   };
+
+  const handleRegister = () => {
+    window.location.href = "/register"; 
+  };
   
   
   return (
-    <div>
-      <h1>Login</h1>
-      <form onSubmit={handleLogin}>
-        <div>
-          <label>Email:</label>
-          <input
-            type='email'
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </div>
+    <div className='login-container'>
+      <div className='login-box'>
+        <h1>Login</h1>
+        <form onSubmit={handleLogin}>
+          <div>
+            <label>Email:</label>
+            <input
+              type='email'
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
 
-        <div>
-          <label>Contraseña:</label>
-          <input
-            type='password'
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
+          <div>
+            <label>Contraseña:</label>
+            <input
+              type='password'
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
 
-        {error && <p style={{color:"red"}}>{error}</p>}
+          {error && <p style={{color:"red"}}>{error}</p>}
 
-        <button type='submit'>Ingresar</button>
-      </form>
+          <button type='submit'>Ingresar</button>
+        </form>
+        <button onClick={handleRegister} className="register-button">Registrarse</button>
+      </div>
     </div>
   );
 };

@@ -1,55 +1,42 @@
-import React, { useState } from 'react';
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { loginUser } from "../actions/login-user";
 
-// Componente ProductosPage
-const LoginPage: React.FC = () => {
-  const[email, setEmail] = useState("");
-  const[password, setPassword] = useState("")
-  const[error, setError] = useState("")
+export default function LoginPage() {
   const navigate = useNavigate();
 
-  const handleLogin = async(e: React.FormEvent) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
 
-    try{
-      const response = await fetch("http://localhost:8080/api/auth/login", {
-        method : "POST",
-        headers: {
-          "Content-type": "application/json"
-        },
-        body: JSON.stringify({email, password})
-      });
+    try {
+      const user = await loginUser(email, password);
 
-      if(!response.ok){
-        setError("Credenciales invalidas");
-        return;
-      }
+      // Guardar usuario completo (con rol)
+      localStorage.setItem("usuario", JSON.stringify(user));
 
-      const data = await response.json();
+      alert(`Bienvenido/a ${user.nombre} ❤️`);
 
-      localStorage.setItem("token", data.token);
-
-      window.location.href = "/dashboard";
-    }catch{
-      setError("Error al conectar con el servidor")
+      navigate("/"); // ir al home
+    } catch (err: any) {
+      setError(err);
     }
   };
 
-  const handleRegister = () => {
-    navigate("/registro"); 
-  };
-  
-  
   return (
-    <div className='login-container'>
-      <div className='login-box'>
-        <h1>Login</h1>
+    <div className="login-container">
+      <div className="login-box">
+        <h1>Iniciar Sesión</h1>
+
         <form onSubmit={handleLogin}>
           <div>
             <label>Email:</label>
             <input
-              type='email'
+              type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -59,21 +46,25 @@ const LoginPage: React.FC = () => {
           <div>
             <label>Contraseña:</label>
             <input
-              type='password'
+              type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
             />
           </div>
 
-          {error && <p style={{color:"red"}}>{error}</p>}
+          {error && <p style={{ color: "red" }}>{error}</p>}
 
-          <button type='submit'>Ingresar</button>
+          <button type="submit" className="btn">Ingresar</button>
         </form>
-        <button onClick={handleRegister} className="register-button">Registrarse</button>
+
+        <button
+          onClick={() => navigate("/registro")}
+          className="register-button"
+        >
+          Registrarse
+        </button>
       </div>
     </div>
   );
-};
-
-export default LoginPage;
+}

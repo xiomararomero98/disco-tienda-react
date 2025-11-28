@@ -94,6 +94,24 @@ body {
   color: #fff;
   cursor: pointer;
 }
+.navbar-user {
+  font-weight: bold;
+  color: #ff69b4;
+}
+
+.btn-logout {
+  background: none;
+  border: none;
+  color: red;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 0;
+}
+
+.btn-logout:hover {
+  text-decoration: underline;
+}
+
 
 /* ===== Responsive ===== */
 @media (max-width: 900px) {

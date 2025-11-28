@@ -28,9 +28,10 @@ export default function LoginPage() {
   };
 
   return (
-    <div className='login-container'>
-      <div className='login-box'>
-        <h1>Login</h1>
+    <div className="login-container">
+      <div className="login-box">
+        <h1>Iniciar Sesión</h1>
+
         <form onSubmit={handleLogin}>
           <div>
             <label>Email:</label>

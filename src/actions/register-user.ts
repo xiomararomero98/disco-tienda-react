@@ -9,7 +9,11 @@ export async function registerUser(data: {
   direccion: string;
 }) {
   try {
-    const res = await axios.post("http://localhost:8081/usuarios", data);
+    const res = await axios.post("http://localhost:8081/usuarios", {
+      ...data,
+      rol: { id: 2 } // CLIENTE por defecto
+    });
+
     return res.data;
   } catch (error: any) {
     throw error.response?.data?.message || "Error al registrar usuario";

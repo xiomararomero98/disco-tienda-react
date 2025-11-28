@@ -33,41 +33,33 @@ export default function RegistroPage() {
   };
 
   return (
-    <div>
-      <h1>Productos</h1>
+    <div className="registro-container">
+      <h2>Crear Cuenta</h2>
+
       <form onSubmit={handleRegister}>
-        <div>
-          <label>Email:</label>
-          <input
-            type='email'
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </div>
-        <div>
-          <label>Contraseña:</label>
-          <input
-            type='password'
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
-        <div>
-          <label>Usuario:</label>
-          <input
-            type='username'
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            required
-          />
-        </div>
+
+        <label>Nombre</label>
+        <input name="nombre" value={form.nombre} onChange={handleChange} required />
+
+        <label>Apellido</label>
+        <input name="apellido" value={form.apellido} onChange={handleChange} required />
+
+        <label>Email</label>
+        <input name="email" type="email" value={form.email} onChange={handleChange} required />
+
+        <label>Contraseña</label>
+        <input name="password" type="password" value={form.password} onChange={handleChange} required />
+
+        <label>Teléfono</label>
+        <input name="telefono" value={form.telefono} onChange={handleChange} />
+
+        <label>Dirección</label>
+        <input name="direccion" value={form.direccion} onChange={handleChange} />
+
+        {error && <p style={{ color: "red" }}>{error}</p>}
+
+        <button type="submit" className="btn">Registrarse</button>
       </form>
-
-        {error && <p style={{color:"red"}}>{error}</p>}
-
-        <button type='submit'>Ingresar</button>
     </div>
   );
 }

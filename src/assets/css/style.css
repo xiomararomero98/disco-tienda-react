@@ -303,7 +303,7 @@ body {
   border-radius: 50%;
   box-shadow: 0 0 8px #ff0099, 0 0 12px #ff33aa; /* efecto neón */
 }
-/* Fondo especial solo para la página de login */
+
 body.login-page {
   margin: 0;
   padding: 0;
@@ -314,7 +314,6 @@ body.login-page {
   color: #fff;
 }
 
-/* Caja de login */
 .login-container {
   display: flex;
   justify-content: center;
@@ -373,14 +372,13 @@ body.login-page {
   margin-top: 15px;
   font-size: 14px;
 }
-/* Fondo especial para registro */
+
 body.registro-page {
   background: url('../img/navbar.jpg') no-repeat center center fixed;
   background-size: cover;
   color: #fff;
 }
 
-/* Caja registro */
 .registro-container {
   display: flex;
   justify-content: center;

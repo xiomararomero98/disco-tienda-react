@@ -1,8 +1,12 @@
-import { productosMock } from "../mock-data/products.mocks";
+import axios from "axios";
 import type { Product } from "../interfaces/product.interface";
-import { getAllProducts } from "../actions/get-all-products";
 
-export async function getProductById(id: number | string): Promise<Product | undefined>  {
-  const all = await getAllProducts();
-  return all.find(p => String(p.id) === String(id));
+export async function getProductById(id: number | string): Promise<Product | null> {
+  try {
+    const res = await axios.get<Product>(`http://localhost:8082/productos/${id}`);
+    return res.data;
+  } catch (error) {
+    console.error("Error obteniendo producto:", error);
+    return null;
+  }
 }

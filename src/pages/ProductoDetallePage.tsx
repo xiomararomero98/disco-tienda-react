@@ -17,16 +17,18 @@ export default function ProductoDetallePage() {
     if (!producto) return;
     const carrito = JSON.parse(localStorage.getItem("carrito") || "[]");
     const existe = carrito.find((item: any) => item.id === producto.id);
+
     if (existe) {
       existe.cantidad = (existe.cantidad || 1) + 1;
     } else {
       carrito.push({ ...producto, cantidad: 1 });
     }
+
     localStorage.setItem("carrito", JSON.stringify(carrito));
-    alert(`${producto.nombre} agregado ✅`);
+    alert(`${producto.nombre} agregado al carrito 🛒`);
   };
 
-  if (!producto) return <p style={{ padding: 20 }}>Cargando...</p>;
+  if (!producto) return <p>Cargando...</p>;
 
   return (
     <div className="detalle-container">

@@ -5,6 +5,7 @@ export default function ProductCard({ p }: { p: Product }) {
   const agregarCarrito = () => {
     const carrito = JSON.parse(localStorage.getItem("carrito") || "[]");
     const existe = carrito.find((item: Product & { cantidad: number }) => item.id === p.id);
+    
     if (existe) {
       existe.cantidad = (existe.cantidad || 1) + 1;
     } else {

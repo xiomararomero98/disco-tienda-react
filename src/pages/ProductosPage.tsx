@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getAllProducts } from "../actions/get-all-products";
-import type { Product } from "../interfaces/product.interface";
 import ProductCard from "../components/ProductCard";
+import type { Product } from "../interfaces/product.interface";
 
 export default function ProductosPage() {
   const [items, setItems] = useState<Product[]>([]);
@@ -13,7 +13,7 @@ export default function ProductosPage() {
   return (
     <section className="productos-destacados">
       <h2>Productos</h2>
-      <div id="lista-productos" className="grid-productos">
+      <div className="grid-productos">
         {items.map(p => <ProductCard key={p.id} p={p} />)}
       </div>
     </section>

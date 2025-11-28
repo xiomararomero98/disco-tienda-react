@@ -1,3 +1,7 @@
+import entradaImg from "../assets/img/entradas.png";
+import cervezasImg from "../assets/img/cervezas.png";
+import whiskysImg from "../assets/img/whiskys.png";
+
 export const productos = [
   { id: 1, nombre: "Entrada General", precio: 10000, imagen: "img/entrada.png" },
   { id: 2, nombre: "Promo Cervezas", precio: 20000, imagen: "img/cervezas.png" },

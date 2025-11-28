@@ -2,9 +2,13 @@ import React, { useState } from 'react';
 
 // Componente ProductosPage
 const RegistroPage: React.FC = () => {
+  const[nombre, setNombre] = useState("");
+  const[apellido, setApellido] = useState("");
   const[email, setEmail] = useState("");
   const[password, setPassword] = useState("");
   const[username, setUsername] = useState("");
+  const[telefono, setTelefono] = useState("");
+  const[direccion, setDireccion] = useState("");
   const[error, setError] = useState("");
   
   const handleRegister = async(e: React.FormEvent) => {
@@ -40,29 +44,64 @@ const RegistroPage: React.FC = () => {
         <h2>Registro</h2>
         <form onSubmit={handleRegister}>
           <div>
-            <label>Email:</label>
+            <label>Nombre: *</label>
+            <input
+              type='text'
+              value={nombre}
+              onChange={(e) => setNombre(e.target.value)}
+              required
+            />
+          </div>
+          <div>
+            <label>Apellido(s): *</label>
+            <input
+              type='text'
+              value={apellido}
+              onChange={(e) => setApellido(e.target.value)}
+              required
+            />
+          </div>
+          <div>
+            <label>Usuario:</label>
+            <input
+              type='text'
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+          </div>
+          <div>
+            <label>Email: *</label>
             <input
               type='email'
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
             />
-        </div>
-        <div>
-            <label>Contraseña:</label>
+          </div>
+          <div>
+            <label>Contraseña: *</label>
             <input
               type='password'
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
             />
-        </div>
-        <div>
-            <label>Usuario:</label>
+          </div>
+          <div>
+            <label>Telefono: *</label>
             <input
-              type='username'
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              type='tel'
+              value={telefono}
+              onChange={(e) => setTelefono(e.target.value)}
+              required
+            />
+          </div>
+          <div>
+            <label>Direccion: *</label>
+            <input
+              type='text'
+              value={direccion}
+              onChange={(e) => setDireccion(e.target.value)}
               required
             />
           </div>

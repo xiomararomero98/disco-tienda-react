@@ -1,8 +1,8 @@
 export interface Product {
-  id?: number; // opcional
+  id: number;
   nombre: string;
   descripcion: string;
   precio: number;
   stock: number;
-  imagen: string; // ruta tipo "/img/cervezas.png"
+  imagen: string;
 }
